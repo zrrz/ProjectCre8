@@ -8,8 +8,8 @@ using UnityEngine.UI.Extensions;
 namespace Designer {
 	public class Node : MonoBehaviour, IDragHandler {
 
-		public Node next;
-		public Node prev;
+		public Connectable next;
+		public Connectable prev;
 
 		Connectable anchorPrev;
 		Connectable AnchorPrev { get { return anchorPrev;} }
@@ -31,8 +31,8 @@ namespace Designer {
 				line.Points = new Vector2[] {
 					new Vector2(0f, 0f), 
 					new Vector2(30f, 0), 
-					RectTransformExtension.switchToRectTransform(next.AnchorPrev.GetComponent<RectTransform>(), line.GetComponent<RectTransform>()) - new Vector2(30f, 0),
-					RectTransformExtension.switchToRectTransform(next.AnchorPrev.GetComponent<RectTransform>(), line.GetComponent<RectTransform>())
+					RectTransformExtension.switchToRectTransform(next.anchor.GetComponent<RectTransform>(), line.GetComponent<RectTransform>()) - new Vector2(30f, 0),
+					RectTransformExtension.switchToRectTransform(next.anchor.GetComponent<RectTransform>(), line.GetComponent<RectTransform>())
 				};
 			} else {
 				line.enabled = false;
